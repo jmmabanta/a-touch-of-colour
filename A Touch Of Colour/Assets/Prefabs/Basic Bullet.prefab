@@ -92,7 +92,10 @@ MonoBehaviour:
   bulletSpeed: 12
   fireRate: 0.5
   damage: 1
-  effect: {fileID: 1593124643234904, guid: 91707def174e1ac42b158835689cfb59, type: 2}
+  regularEffect: {fileID: 1593124643234904, guid: 91707def174e1ac42b158835689cfb59,
+    type: 2}
+  basicEnemyEffect: {fileID: 1226990955102588, guid: 0d9141a5e13e240aa962c229deadedfe,
+    type: 2}
 --- !u!212 &212046741866759880
 SpriteRenderer:
   m_ObjectHideFlags: 1

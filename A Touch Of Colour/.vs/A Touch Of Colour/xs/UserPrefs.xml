@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{36074E21-2FDA-0D36-8F35-755DBC12D3D7}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="76" Column="3" />
+      <File FileName="Assets/Scripts/HPFramework.cs" Line="18" Column="43" />
+      <File FileName="Assets/Scripts/Flash.cs" Line="25" Column="24" />
+      <File FileName="Assets/Scripts/BasicBullet.cs" Line="44" Column="85" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

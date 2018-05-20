@@ -7,7 +7,10 @@ public class BasicBullet : MonoBehaviour {
 	public float bulletSpeed; // Speed of the bullet
 	public float fireRate; // Rate of fire of the bullet
 	public float damage; // Damage of the bullet
-	public GameObject effect; // The bullet's death effect
+	public GameObject regularEffect; // The bullet's death effect
+
+    // Enemy hit effects
+    public GameObject basicEnemyEffect; // Basic enemy hit effect
 
 	Rigidbody2D rb; // Rigidbody of bullet
 	private Vector2 moveVel; // Move velocity of the bullet
@@ -32,9 +35,13 @@ public class BasicBullet : MonoBehaviour {
 	{
 		if (collision.tag != "Player")
 		{
-			// Bullet emits a particle effect then despawns
-			// Only when it hits something that is not the player
-			Instantiate(effect, transform.position, Quaternion.identity);
+            // Bullet emits a particle effect then despawns
+            // Only when it hits something that is not the player
+            //Instantiate(effect, transform.position, Quaternion.identity);
+            if (collision.GetComponent<BasicEnemy>() != null)
+                Instantiate(basicEnemyEffect, transform.position, Quaternion.identity);
+            else
+                Instantiate(regularEffect, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}
 

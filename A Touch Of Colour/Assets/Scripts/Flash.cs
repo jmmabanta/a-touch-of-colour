@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Flash : MonoBehaviour {
 
-	public float darkness;
-	public float timing;
+	public float darkness; // How dark the object will get
+	public float timing; // Time it takes to darken
 
-	SpriteRenderer sprite;
+	SpriteRenderer sprite; // Sprite to darken
 	
 	void Start()
 	{
-		sprite = GetComponent<SpriteRenderer>();
+		sprite = GetComponent<SpriteRenderer>(); // Gets the SpriteRenderer
 	}
 
+    // Function flashes the sprite
 	public void Darken()
 	{
 		StartCoroutine(DarkSprite());
@@ -24,10 +25,10 @@ public class Flash : MonoBehaviour {
 		bool flashed = false;
 		while (!flashed)
 		{
-			Color change = Color.Lerp(Color.white, new Color(darkness, darkness, darkness), Time.time);
+            Color change = new Color(darkness, darkness, darkness);
 			sprite.color = change;
 			yield return new WaitForSeconds(timing);
-			change = Color.Lerp(new Color(darkness, darkness, darkness), Color.white, Time.time);
+            change = Color.white;
 			sprite.color = change;
 			flashed = true;
 			yield return new WaitForSeconds(timing);
