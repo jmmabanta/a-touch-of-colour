@@ -1,9 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicBullet : MonoBehaviour {
 
+	#region Variables
 	public float bulletSpeed; // Speed of the bullet
 	public float fireRate; // Rate of fire of the bullet
 	public float damage; // Damage of the bullet
@@ -15,6 +16,9 @@ public class BasicBullet : MonoBehaviour {
 	Rigidbody2D rb; // Rigidbody of bullet
 	private Vector2 moveVel; // Move velocity of the bullet
 
+	#endregion
+
+	#region Functions
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>(); // Gets rigidbody2d of bullet
@@ -42,18 +46,21 @@ public class BasicBullet : MonoBehaviour {
                 Instantiate(basicEnemyEffect, transform.position, Quaternion.identity);
             else
                 Instantiate(regularEffect, transform.position, Quaternion.identity);
-			Destroy(gameObject);
+
+			// Damages thing if it has an HPFramwork
+			if (collision.gameObject.GetComponent<HPFramework>() != null)
+			{
+				collision.gameObject.GetComponent<HPFramework>().Damage(damage);
+			}
+
+			Destroy(gameObject); // Destroys bullet
 		}
 
 		if (collision.GetComponent<Flash>() != null)
 		{
 			collision.GetComponent<Flash>().Darken();
 		}
-
-		if (collision.gameObject.GetComponent<HPFramework>() != null)
-		{
-			collision.gameObject.GetComponent<HPFramework>().Damage(damage);
-		}
+		#endregion
 
 	}
 

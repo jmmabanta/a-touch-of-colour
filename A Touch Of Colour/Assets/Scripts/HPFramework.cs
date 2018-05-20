@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,9 @@ public class HPFramework : MonoBehaviour {
 
 	public float hp; // Health of entity
 	public GameObject deathAnimation; // Death particle effect
+
+	[SerializeField]
+	private GameObject gameOver; // Game over animation (for player)
 	
     // Function deals damage to entity
 	public void Damage(float damage)
@@ -15,6 +18,10 @@ public class HPFramework : MonoBehaviour {
 		{
 			if (deathAnimation != null)
 				Instantiate(deathAnimation, transform.position, Quaternion.identity); // Plays death animation
+			if (gameObject.tag == "Player")
+			{
+				gameOver.SetActive(true);
+			}
 			Destroy(gameObject); // Destroys entity
 		}
 	}

@@ -11,6 +11,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	public GameObject player; // Player
 	PlayerController playerControls; // Player's variables (Mainly used to disable player movement)
+	HPFramework playerHP; // Player's hp
 
 	float pushTimer = 0; // Timer for the knockback stun
 
@@ -24,12 +25,13 @@ public class BasicEnemy : MonoBehaviour {
 	{
 		rb = GetComponent<Rigidbody2D>(); // Gets rigidbody2d component of enemy
 		playerControls = player.GetComponent<PlayerController>(); // Gets PlayerController of player
-		shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
+		playerHP = player.GetComponent<HPFramework>(); // Gets player hp
+		shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>(); 
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (!touching) // Moves enemy towards player if touching = false
+		if (!touching && player != null) // Moves enemy towards player if touching = false
 			rb.AddForce(new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y) * speed, ForceMode2D.Impulse);
 	}
 
@@ -43,6 +45,7 @@ public class BasicEnemy : MonoBehaviour {
 			Vector2 contact = col.contacts[0].point - new Vector2(player.transform.position.x, player.transform.position.y); // Contact push
 			contact = -contact.normalized; // Normalizes the push force
 			player.GetComponent<Rigidbody2D>().AddForce(contact * pushForce, ForceMode2D.Impulse); // Applies the push to the player
+			playerHP.Damage(damage);
 		}
 	}
 
