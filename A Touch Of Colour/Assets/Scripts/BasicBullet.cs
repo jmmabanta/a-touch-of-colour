@@ -10,6 +10,8 @@ public class BasicBullet : MonoBehaviour {
 	public float damage; // Damage of the bullet
 	public GameObject regularEffect; // The bullet's death effect
 
+    bool hit = false;
+
 	AudioSource audio;
 	public AudioClip hitSound;
 
@@ -41,8 +43,11 @@ public class BasicBullet : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag != "Player")
+		if (collision.tag != "Player" && !hit)
 		{
+
+            hit = true;
+
             // Bullet emits a particle effect then despawns
             // Only when it hits something that is not the player
             //Instantiate(effect, transform.position, Quaternion.identity);

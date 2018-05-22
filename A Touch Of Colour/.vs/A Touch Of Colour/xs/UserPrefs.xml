@@ -1,11 +1,14 @@
 ﻿<Properties StartupConfiguration="{36074E21-2FDA-0D36-8F35-755DBC12D3D7}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SingleCannonTurret.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="76" Column="3" />
-      <File FileName="Assets/Scripts/HPFramework.cs" Line="18" Column="43" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="91" Column="89" />
+      <File FileName="Assets/Scripts/HPFramework.cs" Line="18" Column="4" />
       <File FileName="Assets/Scripts/Flash.cs" Line="25" Column="24" />
-      <File FileName="Assets/Scripts/BasicBullet.cs" Line="44" Column="85" />
+      <File FileName="Assets/Scripts/BasicBullet.cs" Line="40" Column="23" />
+      <File FileName="Assets/Scripts/BasicEnemy.cs" Line="10" Column="86" />
+      <File FileName="Assets/Scripts/SingleCannonTurret.cs" Line="21" Column="23" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="28" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

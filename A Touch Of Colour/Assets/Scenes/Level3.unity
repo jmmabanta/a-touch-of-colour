@@ -596,7 +596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &669478110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,7 +1043,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 33e698263caaba34e89c21d46ecaaa9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2544,6 +2544,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1980402328}
   - component: {fileID: 1980402327}
+  - component: {fileID: 1980402329}
+  - component: {fileID: 1980402330}
+  - component: {fileID: 1980402331}
   m_Layer: 10
   m_Name: Turret Mount
   m_TagString: Untagged
@@ -2610,6 +2613,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980402329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1980402326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c948c0515c954cf98a156ecf31acddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  cannon: {fileID: 993613033}
+  player: {fileID: 1759192453}
+  startShootingTime: 0
+  fireRate: 0
+--- !u!61 &1980402330
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1980402326}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00060999393, y: -0.0023730397}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0.1875, z: 0.1875, w: 0}
+    pivot: {x: 0.40753168, y: 0.5954512}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81384337, y: 0.8138437}
+  m_EdgeRadius: 0
+--- !u!114 &1980402331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1980402326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab44db652bf16c42b44845148a460a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 10
+  deathAnimation: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!1 &2012110137
 GameObject:
   m_ObjectHideFlags: 0
