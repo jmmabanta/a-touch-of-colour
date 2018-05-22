@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,23 @@ public class PlayerController : MonoBehaviour {
 	public BasicBullet basicBullet; // Basic bullet prefab
 	public bool isFiring = false; // Determines if weapon can be fired
 	public bool allowInput = true; // Determines if player can move
+
+	private AudioSource audio;
+	public AudioClip basicWeaponShootSound;
+
+	private int kills = 0;
+	public int Kills
+	{
+		get
+		{
+			return this.kills;
+		}
+		set
+		{
+			this.kills = value;
+		}
+	}
+
 
 	float bulletCounter; // Keeps track of fire rate
 
@@ -23,9 +40,23 @@ public class PlayerController : MonoBehaviour {
 
 	public Weapons weapon; // Current weapon
 
+	public int Kills1
+	{
+		get
+		{
+			return kills;
+		}
+
+		set
+		{
+			kills = value;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>(); // Gets rigidbody2d of player
+		audio = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -55,6 +86,8 @@ public class PlayerController : MonoBehaviour {
 				{
 					case Weapons.StarterWeapon:
 						bulletCounter = basicBullet.fireRate; // Sets timer to weapon's fire rate
+						audio.clip = basicWeaponShootSound;
+						audio.Play();
 						BasicBullet newBullet = Instantiate(basicBullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity) as BasicBullet; // Creates the bullet
 						newBullet.SetDirection(new Vector2(Input.GetAxisRaw("ShootH"), Input.GetAxisRaw("ShootV"))); // Sets bullet direction to arrow key direction
 						break;

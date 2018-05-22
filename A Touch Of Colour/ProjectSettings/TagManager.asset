@@ -19,10 +19,10 @@ TagManager:
   - 
   - 
   - Post Process
-  - 
-  - 
-  - 
-  - 
+  - Pool
+  - Enemy
+  - Bullet
+  - Ladder
   - 
   - 
   - 

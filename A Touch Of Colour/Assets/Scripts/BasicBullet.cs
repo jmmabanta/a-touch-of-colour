@@ -10,6 +10,9 @@ public class BasicBullet : MonoBehaviour {
 	public float damage; // Damage of the bullet
 	public GameObject regularEffect; // The bullet's death effect
 
+	AudioSource audio;
+	public AudioClip hitSound;
+
     // Enemy hit effects
     public GameObject basicEnemyEffect; // Basic enemy hit effect
 
@@ -22,6 +25,7 @@ public class BasicBullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>(); // Gets rigidbody2d of bullet
+		audio = GetComponent<AudioSource>();
 	}
 
 	// This function sets which direction the bullet will travel towards
@@ -53,15 +57,20 @@ public class BasicBullet : MonoBehaviour {
 				collision.gameObject.GetComponent<HPFramework>().Damage(damage);
 			}
 
-			Destroy(gameObject); // Destroys bullet
+			GetComponent<SpriteRenderer>().enabled = false;
+
+			audio.PlayOneShot(hitSound);
+
+			Destroy(gameObject, 1f); // Destroys bullet
 		}
 
 		if (collision.GetComponent<Flash>() != null)
 		{
 			collision.GetComponent<Flash>().Darken();
 		}
-		#endregion
-
+	
 	}
+
+	#endregion
 
 }

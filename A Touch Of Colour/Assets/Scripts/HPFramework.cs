@@ -8,7 +8,7 @@ public class HPFramework : MonoBehaviour {
 	public GameObject deathAnimation; // Death particle effect
 
 	[SerializeField]
-	private GameObject gameOver; // Game over animation (for player)
+	private Animator gameOver; // Game over animation (for player)
 	
     // Function deals damage to entity
 	public void Damage(float damage)
@@ -20,7 +20,7 @@ public class HPFramework : MonoBehaviour {
 				Instantiate(deathAnimation, transform.position, Quaternion.identity); // Plays death animation
 			if (gameObject.tag == "Player")
 			{
-				gameOver.SetActive(true);
+				gameOver.SetTrigger("GameOver");
 			}
 			Destroy(gameObject); // Destroys entity
 		}

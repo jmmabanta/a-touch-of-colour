@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class BasicEnemy : MonoBehaviour {
 	public float pushForce; // Strength of knockback
 	public float pushStunTime; // How long to prevent player from moving after knockback
 
-	public GameObject player; // Player
+	GameObject player; // Player
 	PlayerController playerControls; // Player's variables (Mainly used to disable player movement)
 	HPFramework playerHP; // Player's hp
 
@@ -23,6 +23,7 @@ public class BasicEnemy : MonoBehaviour {
 
 	private void Start()
 	{
+		player = GameObject.FindGameObjectWithTag("Player");
 		rb = GetComponent<Rigidbody2D>(); // Gets rigidbody2d component of enemy
 		playerControls = player.GetComponent<PlayerController>(); // Gets PlayerController of player
 		playerHP = player.GetComponent<HPFramework>(); // Gets player hp
@@ -77,6 +78,7 @@ public class BasicEnemy : MonoBehaviour {
 	private void OnDestroy()
 	{
 		playerControls.allowInput = true;
+		playerControls.Kills++;
 	}
 
 	/*
