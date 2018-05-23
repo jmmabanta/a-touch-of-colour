@@ -13,6 +13,8 @@ public class NextLevelLadder : MonoBehaviour {
 	public EnemySpawner spawner;
 	public PlayerController player;
 
+	public GameObject turret;
+
 	Animator ladder;
 
 	private void Start()
@@ -22,10 +24,13 @@ public class NextLevelLadder : MonoBehaviour {
 
 	private void Update()
 	{
-		if (player.Kills >= spawner.enemySpawnLimit && !levelDone)
+		if (player.kills >= spawner.enemySpawnLimit && !levelDone)
 		{
-			levelDone = true;
-			ladder.SetTrigger("SpawnIn");
+			if (turret == null)
+			{
+				levelDone = true;
+				ladder.SetTrigger("SpawnIn");
+			}
 		}
 	}
 

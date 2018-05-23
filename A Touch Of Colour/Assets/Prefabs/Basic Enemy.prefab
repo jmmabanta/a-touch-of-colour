@@ -114,9 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab44db652bf16c42b44845148a460a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 1
   deathAnimation: {fileID: 1885473846093390, guid: 07adcc91f6f5e064f83022f909cc433f,
     type: 2}
+  hasSound: 0
+  hitSound: {fileID: 0}
   gameOver: {fileID: 0}
 --- !u!114 &114605507919326252
 MonoBehaviour:

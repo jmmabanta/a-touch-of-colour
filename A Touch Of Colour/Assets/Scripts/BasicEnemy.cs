@@ -60,7 +60,7 @@ public class BasicEnemy : MonoBehaviour {
 	private IEnumerator PushTimerCountdown()
 	{
 		pushTimer = pushStunTime;
-		playerControls.allowInput = false; ; // Disables player input
+		playerControls.allowInput = false; // Disables player input
 		while (pushTimer > 0)
 		{
 			//Debug.Log("Push Timer: " + pushTimer);
@@ -78,7 +78,7 @@ public class BasicEnemy : MonoBehaviour {
 	private void OnDestroy()
 	{
 		playerControls.allowInput = true;
-		playerControls.Kills++;
+		playerControls.kills++;
 	}
 
 	/*

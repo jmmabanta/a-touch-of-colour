@@ -15,6 +15,11 @@ public class InGameUI : MonoBehaviour {
 		StartCoroutine(LoadLevelTransition(0));
 	}
 
+	public void Restart(int sceneIndex)
+	{
+		StartCoroutine(LoadLevelTransition(sceneIndex));
+	}
+
 	IEnumerator LoadLevelTransition(int sceneIndex)
 	{
 		transition.SetTrigger("end");

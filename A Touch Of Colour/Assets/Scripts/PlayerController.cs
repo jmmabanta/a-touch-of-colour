@@ -12,18 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource audio;
 	public AudioClip basicWeaponShootSound;
 
-	private int kills = 0;
-	public int Kills
-	{
-		get
-		{
-			return this.kills;
-		}
-		set
-		{
-			this.kills = value;
-		}
-	}
+	public int kills = 0;
 
 
 	float bulletCounter; // Keeps track of fire rate
@@ -39,19 +28,6 @@ public class PlayerController : MonoBehaviour {
 	};
 
 	public Weapons weapon; // Current weapon
-
-	public int Kills1
-	{
-		get
-		{
-			return kills;
-		}
-
-		set
-		{
-			kills = value;
-		}
-	}
 
 	// Use this for initialization
 	void Start () {
